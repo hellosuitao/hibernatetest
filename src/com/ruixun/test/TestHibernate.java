@@ -10,7 +10,7 @@ import org.junit.Test;
 import java.util.List;
 
 public class TestHibernate {
-
+/*hql*/
     @Test
     public void add() {
 //        String path = TestHibernate.class.getClassLoader().getResource("com/ruixun/resources/hibernate.cfg.xml").getFile();
@@ -63,7 +63,7 @@ public class TestHibernate {
         sessionFactory.close();
     }
 
-    /*-------------------------使用工具类，和其他crud方法---------------------------*/
+/*sql*/
     @Test
     public void add1(){
         Session session = HibernateUtil.getSession();
@@ -86,6 +86,8 @@ public class TestHibernate {
         session.close();
         HibernateUtil.closeSessionFactory();
     }
+
+/*hql*/
     @Test
     public void get2(){
         Session session = HibernateUtil.getSession();
@@ -97,6 +99,8 @@ public class TestHibernate {
         session.close();
         HibernateUtil.closeSessionFactory();
     }
+
+/*criteria*/
     @Test
     public void test3(){
         Session session = HibernateUtil.getSession();
