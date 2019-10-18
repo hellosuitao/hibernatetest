@@ -1,24 +1,16 @@
 package com.ruixun.bean;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 public class User {
     private Integer id;
     private String name;
     private String address;
-
-    public User(Integer id, String name, String address) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
+    private Set<String> hobbies;
+    private List<String> works;
+    private Map<String,String> city;
 
     public Integer getId() {
         return id;
@@ -44,6 +36,33 @@ public class User {
         this.address = address;
     }
 
-    public User() {
+    public Set<String> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(Set<String> hobbies) {
+        this.hobbies = hobbies;
+    }
+
+    public List<String> getWorks() {
+        return works;
+    }
+
+    public void setWorks(List<String> works) {
+        this.works = works;
+    }
+
+    public Map<String, String> getCity() {
+        return city;
+    }
+
+    public void setCity(Map<String, String> city) {
+        this.city = city;
+    }
+
+    public User(Integer id, String name, String address) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
     }
 }

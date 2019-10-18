@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 import org.junit.Test;
 
-import java.util.List;
+import java.util.*;
 
 public class TestHibernate {
 /*hql*/
@@ -118,4 +118,27 @@ public class TestHibernate {
 
     }
 
+    @Test
+    public void test4(){
+        Configuration configure = new Configuration().configure("com/ruixun/resources/hibernate.cfg.xml");
+        SessionFactory sessionFactory = configure.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        User user = new User(null, "11", "11");
+        Set<String> set = new HashSet<>();
+        set.add("aaa");
+        set.add("bbb");
+        user.setHobbies(set);
+        List<String> list = Arrays.asList("sdf", "123", "yiu");
+        user.setWorks(list);
+        Map<String,String> map = new HashMap<>();
+        map.put("1","上海1");
+        map.put("2","上海2");
+        map.put("3","上海3");
+        user.setCity(map);
+        session.save(user);
+        transaction.commit();
+        session.close();
+        sessionFactory.close();
+    }
 }
