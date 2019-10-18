@@ -1,5 +1,7 @@
 package com.ruixun.test;
 
+import com.ruixun.bean.Department;
+import com.ruixun.bean.Employee;
 import com.ruixun.bean.User;
 import com.ruixun.utils.HibernateUtil;
 import org.hibernate.*;
@@ -137,6 +139,91 @@ public class TestHibernate {
         map.put("3","上海3");
         user.setCity(map);
         session.save(user);
+        transaction.commit();
+        session.close();
+        sessionFactory.close();
+    }
+
+    @Test
+    public void testOneTwoMany(){
+        Configuration configure = new Configuration().configure("com/ruixun/resources/hibernate.cfg.xml");
+        SessionFactory sessionFactory = configure.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        /*Employee employee1 = new Employee(null, "111");
+        Employee employee2 = new Employee(null, "222");
+        Employee employee3 = new Employee(null, "333");
+        Set<Employee> set = new HashSet<>();
+        set.add(employee1);
+        set.add(employee2);
+        set.add(employee3);
+        Department department = new Department(null,"ddddd");
+        department.setEmployees(set);
+
+        session.save(department);*/
+
+        transaction.commit();
+        session.close();
+        sessionFactory.close();
+    }
+
+    @Test
+    public void testManyToOne(){
+        /*Configuration configure = new Configuration().configure("com/ruixun/resources/hibernate.cfg.xml");
+        SessionFactory sessionFactory = configure.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        Department department = new Department(null, "111");
+        Employee aaa = new Employee(null, "aaa");
+        Employee bbb = new Employee(null, "bbb");
+        aaa.setDepartment(department);
+        bbb.setDepartment(department);
+
+        session.save(aaa);
+        session.save(bbb);
+
+        transaction.commit();
+        session.close();
+        sessionFactory.close();*/
+    }
+
+    @Test
+    public void manyToMany(){
+        /*Configuration configure = new Configuration().configure("com/ruixun/resources/hibernate.cfg.xml");
+        SessionFactory sessionFactory = configure.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        Department department1 = new Department(null,"aaa");
+        Department department2 = new Department(null,"bbb");
+        Set<Department> set = new HashSet<>();
+        set.add(department1);
+        set.add(department2);
+        Employee zs = new Employee(null, "zs");
+        Employee ls = new Employee(null, "ls");
+        zs.setDepartments(set);
+        ls.setDepartments(set);
+        session.save(zs);
+        session.save(ls);
+
+        transaction.commit();
+        session.close();
+        sessionFactory.close();*/
+    }
+
+    @Test
+    public void testOneToOne(){
+        Configuration configure = new Configuration().configure("com/ruixun/resources/hibernate.cfg.xml");
+        SessionFactory sessionFactory = configure.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        Employee zs = new Employee(null, "zs", null);
+        Department aaa = new Department(null, "aaa", zs);
+        session.save(aaa);
+
         transaction.commit();
         session.close();
         sessionFactory.close();

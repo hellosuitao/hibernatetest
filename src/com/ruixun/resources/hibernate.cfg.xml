@@ -1,53 +1,55 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
-	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-	
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
 <hibernate-configuration>
-	<session-factory>
+    <session-factory>
 
-		<!-- #hibernate.dialect org.hibernate.dialect.MySQLDialect -->
-		<!-- #hibernate.dialect org.hibernate.dialect.MySQLInnoDBDialect -->
-		<!-- ##hibernate.dialect org.hibernate.dialect.MySQLMyISAMDialect -->
+        <!-- #hibernate.dialect org.hibernate.dialect.MySQLDialect -->
+        <!-- #hibernate.dialect org.hibernate.dialect.MySQLInnoDBDialect -->
+        <!-- ##hibernate.dialect org.hibernate.dialect.MySQLMyISAMDialect -->
 
-		<!-- #hibernate.show_sql true #hibernate.format_sql true -->
+        <!-- #hibernate.show_sql true #hibernate.format_sql true -->
 
-		<!-- 数据库的链接信息 -->
-		<!-- 方言 -->
-		<property name="hibernate.dialect">
-			org.hibernate.dialect.MySQLDialect
-		</property>
-	
-		<!-- 数据库驱动 -->
-		<property name="hibernate.connection.driver_class">
-			com.mysql.jdbc.Driver
-		</property>
-		<!-- 数据库url -->
-		<property name="hibernate.connection.url">
-			jdbc:mysql:///hibernate
-		</property>
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">root</property>
+        <!-- 数据库的链接信息 -->
+        <!-- 方言 -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+
+        <!-- 数据库驱动 -->
+        <property name="hibernate.connection.driver_class">
+            com.mysql.jdbc.Driver
+        </property>
+        <!-- 数据库url -->
+        <property name="hibernate.connection.url">
+            jdbc:mysql:///hibernate
+        </property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
 
 
-		<!-- 显示sql -->
-		<property name="hibernate.show_sql">true</property>
-		<!-- 美化sql -->
-		<property name="hibernate.format_sql">true</property>
-		
-		<!-- 自动建表 -->
-		<!-- create 每次启动都会创建表，会覆盖原来的表，数据丢失-->
-		<!-- create-drop 每次启动创建，结束删除表-->
-		<!-- update 每次常见表，如果有则不创建，如果数据有改动，则修改表-->
-		<!-- validate （校验）不创建表-->
-		<property name="hibernate.hbm2ddl.auto">update</property>
-		
-		<!-- 事务管理 -->
-		 <property name="hibernate.connection.isolation">4</property> 
-		
-		<!-- 设置session和当前线程的绑定 -->
-		<property name="hibernate.current_session_context_class">thread</property> 
-		
-       <mapping  resource="com/ruixun/bean/User.hbm.xml"/>
-	</session-factory>
+        <!-- 显示sql -->
+        <property name="hibernate.show_sql">true</property>
+        <!-- 美化sql -->
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- 自动建表 -->
+        <!-- create 每次启动都会创建表，会覆盖原来的表，数据丢失-->
+        <!-- create-drop 每次启动创建，结束删除表-->
+        <!-- update 每次常见表，如果有则不创建，如果数据有改动，则修改表-->
+        <!-- validate （校验）不创建表-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- 事务管理 -->
+        <property name="hibernate.connection.isolation">4</property>
+
+        <!-- 设置session和当前线程的绑定 -->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <mapping resource="com/ruixun/bean/User.hbm.xml"/>
+        <mapping resource="com/ruixun/bean/Employee.hbm.xml"/>
+        <mapping resource="com/ruixun/bean/Department.hbm.xml"/>
+    </session-factory>
 </hibernate-configuration>
