@@ -48,8 +48,11 @@
         <!-- 设置session和当前线程的绑定 -->
         <property name="hibernate.current_session_context_class">thread</property>
 
-        <mapping resource="com/ruixun/bean/User.hbm.xml"/>
+        <mapping resource="com/ruixun/selfassociated/Category.hbm.xml"/>
         <mapping resource="com/ruixun/bean/Employee.hbm.xml"/>
         <mapping resource="com/ruixun/bean/Department.hbm.xml"/>
+        <mapping resource="com/ruixun/onetoone/Person.hbm.xml"/>
+        <mapping resource="com/ruixun/onetoone/Card.hbm.xml"/>
+        <mapping resource="com/ruixun/selfassociated/Category.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
