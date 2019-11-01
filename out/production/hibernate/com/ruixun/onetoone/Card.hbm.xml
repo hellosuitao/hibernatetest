@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ruixun.onetoone">
+    <!--单向主键关联-->
+    <!--<class name="Card" table="t_card">
+        <id name="id" column="t_card_id">
+            <generator class="native"/>
+        </id>
+        <property name="code" column="t_card_code"/>
+    </class>-->
+    <!--双向主键关联-->
+    <!--<class name="Card" table="t_card">
+        <id name="id" column="t_card_id">
+            <generator class="native"/>
+        </id>
+        <property name="code" column="t_card_code"/>
+        <one-to-one name="person"></one-to-one>
+    </class>-->
+    <!--单向外键关联-->
+   <!-- <class name="Card" table="t_card">
+        <id name="id" column="t_card_id">
+            <generator class="native"/>
+        </id>
+        <property name="code" column="t_card_code"/>
+    </class>-->
+    <!--双向外键关联-->
+    <class name="Card" table="t_card">
+        <id name="id" column="t_card_id">
+            <generator class="native"/>
+        </id>
+        <property name="code" column="t_card_code"/>
+        <many-to-one name="person" class="Person" unique="true" column="personId" cascade="save-update" /><!--property-ref：指定关联类的属性名-->
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ruixun.onetoone">
+    <!--单向主键关联-->
+   <!-- <class name="Person" table="t_person">
+        <id name="id" column="t_person_id">
+            <generator class="foreign">&lt;!&ndash;把此ID当做外键&ndash;&gt;
+                <param name="property">card&lt;!&ndash;person类的card属性&ndash;&gt;</param>
+            </generator>
+        </id>
+        <property name="name" column="t_person_name"/>
+        <one-to-one name="card"&lt;!&ndash;person类的card属性&ndash;&gt; constrained="true" cascade="save-update"&lt;!&ndash;级联操作&ndash;&gt;/>
+    </class>-->
+    <!--双向主键关联-->
+    <!--<class name="Person" table="t_person">
+        <id name="id" column="t_person_id">
+            <generator class="foreign">&lt;!&ndash;把此ID当做外键&ndash;&gt;
+                <param name="property">card&lt;!&ndash;person类的card属性&ndash;&gt;</param>
+            </generator>
+        </id>
+        <property name="name" column="t_person_name"/>
+        <one-to-one name="card" constrained="true" cascade="save-update"/>
+    </class>-->
+    <!--单向外键关联-->
+    <!--<class name="Person" table="t_person">
+        <id name="id" column="t_person_id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="t_person_name"/>
+        <many-to-one name="card" column="cardId" unique="true" cascade="save-update"/>
+    </class>-->
+    <!--双向外键关联-->
+    <class name="Person" table="t_person">
+        <id name="id" column="t_person_id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="t_person_name"/>
+        <one-to-one name="card" class="Card" property-ref="person" cascade="save-update"/>
+    </class>
+</hibernate-mapping>

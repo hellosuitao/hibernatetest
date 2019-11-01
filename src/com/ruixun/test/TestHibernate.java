@@ -151,7 +151,7 @@ public class TestHibernate {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        /*Employee employee1 = new Employee(null, "111");
+        Employee employee1 = new Employee(null, "111");
         Employee employee2 = new Employee(null, "222");
         Employee employee3 = new Employee(null, "333");
         Set<Employee> set = new HashSet<>();
@@ -161,7 +161,7 @@ public class TestHibernate {
         Department department = new Department(null,"ddddd");
         department.setEmployees(set);
 
-        session.save(department);*/
+        session.save(department);
 
         transaction.commit();
         session.close();

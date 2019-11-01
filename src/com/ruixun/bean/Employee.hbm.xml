@@ -5,12 +5,12 @@
 <hibernate-mapping package="com.ruixun.bean">
 
 	<!--一对多-->
-	<!--<class name="Employee" table="t_employee">
+	<class name="Employee" table="t_employee">
 		<id name="id" column="t_employee_id">
 			<generator class="native"/>
 		</id>
 		<property name="name" column="t_employee_name"/>
-	</class>-->
+	</class>
 
 	<!--多对一-->
 	<!--<class name="Employee" table="t_employee">
@@ -35,11 +35,11 @@
 	</class>-->
 
 	<!--一对一-->
-	<class name="Employee" table="t_employee">
+	<!--<class name="Employee" table="t_employee">
 		<id name="id" column="t_employee_id">
 			<generator class="native"/>
 		</id>
 		<one-to-one name="department"/>
-	</class>
+	</class>-->
 
 </hibernate-mapping>
